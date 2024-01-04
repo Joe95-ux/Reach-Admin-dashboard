@@ -1,7 +1,7 @@
-//allow for absolute imports starting from the source directory
+
 {
-    "compilerOptions": {
-      "baseUrl": "src"
-    },
-    "include": ["src"]
-  }
+  "compilerOptions": {
+    "baseUrl": "src"
+  },
+  "include": ["src"]
+}

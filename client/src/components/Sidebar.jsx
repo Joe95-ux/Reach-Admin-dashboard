@@ -146,9 +146,13 @@ const Sidebar = ({
               {navItems.map(({ text, icon }) => {
                 if (!icon) {
                   return (
-                    <Typography key={text} sx={{ m: "2.25rem 0 1rem 3rem" }}>
-                      {text}
-                    </Typography>
+                    <>
+                      <Divider sx={{m: "1.25rem 0 0 0"}} />
+                      <Typography key={text} sx={{ m: "1.5rem 0 1rem 3rem" }}>
+                        {text}
+                      </Typography>
+
+                    </>
                   );
                 }
                 const lcText = text.toLowerCase();
@@ -193,7 +197,7 @@ const Sidebar = ({
             </List>
           </Box>
 
-          <Box position="absolute" bottom="2rem">
+          <Box mb="1rem">
             <Divider />
             <FlexBetween textTransform="none" gap="1rem" m="1.5rem 2rem 0 3rem">
               <Box

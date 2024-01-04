@@ -1,4 +1,5 @@
 // color design tokens export
+
 export const tokensDark = {
     grey: {
       0: "#ffffff", // manually adjusted
@@ -28,17 +29,17 @@ export const tokensDark = {
       900: "#070812",
     },
     secondary: {
-      // yellow
-      50: "#f0f0f0", // manually adjusted
-      100: "#fff6e0",
-      200: "#ffedc2",
-      300: "#ffe3a3",
-      400: "#ffda85",
-      500: "#ffd166",
-      600: "#cca752",
-      700: "#997d3d",
-      800: "#665429",
-      900: "#332a14",
+      // purple
+      50: "#e0f2f1",
+      100: "#b2dfdb",
+      200: "#80cbc4",
+      300: "#4db6ac",
+      400: "#26a69a",
+      500: "#009688",
+      600: "#00897b",
+      700: "#00796b",
+      800: "#00695c",
+      900: "#004d40",
     },
   };
   
