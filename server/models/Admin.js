@@ -33,5 +33,5 @@ const AdminSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const User = mongoose.model("Admin", UserSchema);
-export default User;
+const Admin = mongoose.model("Admin", UserSchema);
+export default Admin;
