@@ -1,9 +1,9 @@
 import { CssBaseline, ThemeProvider } from "@mui/material";
-import {createTheme} from "@mui/material/styles";
+import { createTheme } from "@mui/material/styles";
 import { useMemo } from "react";
 import { useSelector } from "react-redux";
 import { BrowserRouter, Route, Navigate, Routes } from "react-router-dom";
-import {themeSettings} from "theme";
+import { themeSettings } from "theme";
 import Layout from "scenes/layout";
 import Dashboard from "scenes/dashboard";
 import Products from "scenes/products";
@@ -17,17 +17,16 @@ import Breakdown from "scenes/breakdown";
 import Admin from "scenes/admin";
 import Performance from "scenes/performance";
 
-
 function App() {
   const mode = useSelector((state) => state.global.mode);
-  const theme = useMemo(()=> createTheme(themeSettings(mode)), [mode]);
+  const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
   return (
     <div className="app">
       <BrowserRouter>
         <ThemeProvider theme={theme}>
-          <CssBaseline/>
+          <CssBaseline />
           <Routes>
-          <Route element={<Layout />}>
+            <Route element={<Layout />}>
               <Route path="/" element={<Navigate to="/dashboard" replace />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/products" element={<Products />} />
@@ -42,11 +41,8 @@ function App() {
               <Route path="/performance" element={<Performance />} />
             </Route>
           </Routes>
-
         </ThemeProvider>
       </BrowserRouter>
-      
-      
     </div>
   );
 }
