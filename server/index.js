@@ -5,6 +5,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import helmet from "helmet";
 import morgan from "morgan";
+import path from "path";
 import clientRoutes from "./routes/client.js";
 import generalRoutes from "./routes/general.js";
 import authRoutes from "./routes/auth.js";
@@ -40,6 +41,8 @@ app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 app.use(morgan("common"));
 app.use(cors());
 
+const __dirname = path.resolve();
+
 
 /* ROUTES */
 app.use('/client', clientRoutes);
@@ -65,9 +68,18 @@ mongoose.connect(process.env.MONGO_URL, {
     // OverallStat.insertMany(dataOverallStat);
     // Product.insertMany(dataProduct);
     // ProductStat.insertMany(dataProductStat);
-    // ransaction.insertMany(dataTransaction);
+    // Transaction.insertMany(dataTransaction);
     // User.insertMany(dataUser);
 
 })
 .catch((error) => console.log(`${error} did not connect`));
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__newdir, "/client/build")));
+
+  // Catch-all route for React app
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__newdir, "client", "build", "index.html"));
+  });
+}
 
