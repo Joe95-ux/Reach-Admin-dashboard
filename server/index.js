@@ -75,11 +75,11 @@ mongoose.connect(process.env.MONGO_URL, {
 .catch((error) => console.log(`${error} did not connect`));
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__newdir, "/client/build")));
+  app.use(express.static(path.join(__dirname, "/client/build")));
 
   // Catch-all route for React app
   app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__newdir, "client", "build", "index.html"));
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   });
 }
 
